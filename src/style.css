@@ -103,11 +103,6 @@ form {
 .buttonLocation:hover {
   background-color: rgba(255, 251, 229, 0.921);
 }
-
-footer {
-  text-align: center;
-  display: block;
-}
 .sun {
   font-size: 50%;
 }
@@ -157,5 +152,6 @@ footer {
 .repository {
   position: relative;
   color: rgb(58, 63, 83);
-  top: -50px;
+  top: -132px;
   left: -20px;
+}
