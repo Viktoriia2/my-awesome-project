@@ -1,0 +1,161 @@
+.backgroung {
+  background: linear-gradient(rgb(13, 4, 53), rgb(96, 107, 165));
+  border-radius: 10px;
+  margin: 5% 27%;
+  color: aliceblue;
+  padding: 0% 2% 0% 3%;
+  font-family: "Quicksand", sans-serif;
+  display: block;
+}
+.currentCity {
+  font-size: 300%;
+  font-weight: bold;
+  position: relative;
+  left: 100px;
+  top: -10px;
+}
+.now {
+  font-weight: lighter;
+  font-size: 90%;
+}
+.img_now {
+  position: relative;
+  top: -70px;
+  left: -25px;
+}
+.currentTime {
+  color: beige;
+}
+.temperature_now {
+  font-size: 340%;
+  position: relative;
+  top: -110px;
+  left: 100px;
+}
+.temperature_night {
+  position: relative;
+  top: -150px;
+  left: 105px;
+  color: beige;
+}
+.container {
+  color: rgb(200, 197, 255);
+  position: relative;
+  top: -70px;
+}
+.col-1 {
+  font-weight: bolder;
+}
+.monthNight {
+  font-weight: lighter;
+}
+.row {
+  font-size: 175%;
+  font-weight: 300;
+}
+form {
+  position: relative;
+  text-align: right;
+  top: -590px;
+  left: 40px;
+}
+.user_city {
+  margin: 0 auto;
+  text-align: center;
+  display: block auto;
+  padding: 0.5% 5%;
+  font-family: "Quicksand", sans-serif;
+  font-size: 120%;
+  font-style: italic;
+  color: rgb(28, 42, 119);
+  background-color: rgba(255, 255, 252, 0.798);
+  border-radius: 50px;
+  border-color: rgba(154, 188, 252, 0.323);
+  transition: all 300ms ease-in-out;
+}
+.user_city:hover {
+  cursor: text;
+  background-color: rgba(255, 251, 229, 0.921);
+  font-weight: bold;
+}
+.buttonUserEnter {
+  text-align: center;
+  padding: 0.4% 1%;
+  font-family: "Quicksand", sans-serif;
+  font-size: 100%;
+  font-style: italic;
+  background-color: rgba(212, 255, 244, 0.883);
+  border-radius: 50px;
+  border-color: rgba(154, 188, 252, 0.323);
+  position: relative;
+  top: 0px;
+  left: -45px;
+}
+.buttonLocation {
+  text-align: center;
+  padding: 0.4% 1.5%;
+  font-family: "Quicksand", sans-serif;
+  font-size: 100%;
+  font-style: italic;
+  background-color: rgba(212, 255, 244, 0.883);
+  border-radius: 50px;
+  border-color: rgba(154, 188, 252, 0.323);
+  position: relative;
+  top: -627px;
+  left: 120px;
+}
+.buttonLocation:hover {
+  background-color: rgba(255, 251, 229, 0.921);
+}
+
+footer {
+  text-align: center;
+  display: block;
+}
+.sun {
+  font-size: 50%;
+}
+.news {
+  position: relative;
+  text-align: right;
+  top: -30px;
+  font-size: 120%;
+}
+.currentTime {
+  position: relative;
+  text-align: left;
+  top: -200px;
+  left: 105px;
+}
+.units {
+  font-size: 25px;
+  position: relative;
+  top: -5px;
+  left: 0px;
+  color: aliceblue;
+}
+.maxCelsius {
+  color: white;
+}
+.descriptionClass {
+  position: relative;
+  top: -223.5px;
+  left: 250px;
+  color: rgba(245, 245, 220, 0.865);
+  font-weight: bold;
+}
+.todayMaximum {
+  position: relative;
+  top: -215px;
+  left: 250px;
+  color: rgba(245, 245, 220, 0.865);
+}
+.humidity {
+  position: relative;
+  top: -220px;
+  left: 250px;
+  color: rgba(245, 245, 220, 0.865);
+}
+.humidityClass {
+  color: white;
+}
