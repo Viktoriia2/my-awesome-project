@@ -157,6 +157,6 @@ footer {
 .repository {
   position: relative;
   color: rgb(58, 63, 83);
-  top: 0px;
-  left: 100px;
+  top: 300px;
+  left: 500px;
 }
