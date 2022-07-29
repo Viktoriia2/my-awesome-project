@@ -111,6 +111,7 @@ form {
   text-align: right;
   top: -30px;
   font-size: 120%;
+  color: rgb(58, 63, 83);
 }
 .currentTime {
   position: relative;
