@@ -1,7 +1,7 @@
 body {
   background: linear-gradient(
-    rgba(210, 255, 242, 0.851) rgba(252, 226, 255, 0.722)
-      rgba(210, 255, 242, 0.851)
+    rgba(198, 255, 239, 0.905) rgba(252, 226, 255, 0.722)
+      rgba(198, 255, 239, 0.905)
   );
 }
 .backgroung {
@@ -135,7 +135,7 @@ form {
   left: 0px;
 }
 .maxCelsius {
-  color: white;
+  color: rgb(175, 77, 232);
 }
 .descriptionClass {
   position: relative;
@@ -157,7 +157,7 @@ form {
   color: rgb(58, 63, 83);
 }
 .humidityClass {
-  color: white;
+  color: rgb(175, 77, 232);
 }
 .repository {
   position: relative;

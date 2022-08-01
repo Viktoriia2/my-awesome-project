@@ -66,10 +66,11 @@ function getCurrentLocation(event) {
 let buttonLocation = document.querySelector("#currentLocationButton");
 buttonLocation.addEventListener("click", getCurrentLocation);
 
-searchCity("Warsaw");
-//
 let formCity = document.querySelector("form");
 formCity.addEventListener("submit", userCityEnter);
+
+searchCity("Warsaw");
+//
 
 //Challenge 3 - менять С на F
 function convertToFahrenheit(event) {
@@ -93,7 +94,7 @@ celsius.addEventListener("click", convertToCelsius);
 //Менять цвет фона взависимости от времени суток (день/ночь)
 let date = new Date(); // Получаем текущие дату и время
 let h = date.getHours(); // Получаем текущий час
-if (h < 6 || h > 18) {
+if (h < 6 || h > 21) {
   document.getElementById("style").href = "src/style-night.css";
   console.log(document.getElementById("style"));
   console.log(h + " Enable Dark");
@@ -102,13 +103,13 @@ if (h < 6 || h > 18) {
   console.log(document.getElementById("style"));
   console.log(h + " Enable Light");
 }
-
 // Заменить слово в новостях
 function currentCityNews(event) {
   event.preventDefault();
   let inputUser = document.querySelector("#name");
-  console.log(inputUser.velue);
   document.getElementById("cityNews").innerHTML = inputUser.value;
 }
 let cityName = document.querySelector("form");
 cityName.addEventListener("submit", currentCityNews);
+
+//
