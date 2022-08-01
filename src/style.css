@@ -83,7 +83,7 @@ form {
 }
 .user_city:hover {
   cursor: text;
-  background-color: rgba(255, 251, 229, 0.921);
+  background-color: rgb(248, 236, 255);
   font-weight: bold;
 }
 .buttonUserEnter {
@@ -97,7 +97,7 @@ form {
   left: -55px;
 }
 .buttonUserEnter:hover {
-  background-color: rgba(255, 251, 229, 0.921);
+  background-color: rgb(248, 236, 255);
 }
 .buttonLocation {
   text-align: center;
@@ -110,7 +110,7 @@ form {
   left: 488px;
 }
 .buttonLocation:hover {
-  background-color: rgba(255, 251, 229, 0.921);
+  background-color: rgb(248, 236, 255);
 }
 .sun {
   font-size: 50%;
