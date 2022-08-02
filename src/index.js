@@ -39,6 +39,8 @@ function displayWeatherCondition(response) {
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
   console.log(response);
+
+  celsiusTemperature = response.data.main.temp;
 }
 
 //Show Current Location
@@ -66,35 +68,42 @@ function getCurrentLocation(event) {
 let buttonLocation = document.querySelector("#currentLocationButton");
 buttonLocation.addEventListener("click", getCurrentLocation);
 
-let formCity = document.querySelector("form");
-formCity.addEventListener("submit", userCityEnter);
-
-searchCity("Warsaw");
-//
-
 //Challenge 3 - менять С на F
 function convertToFahrenheit(event) {
   event.preventDefault();
+  // remove the active class the celsius link
+  celsius.classList.remove("linkC");
+  fahrenheit.classList.add("linkC");
   let temperatureElement = document.querySelector("#convertTemperature");
-  let temperatureChange = temperatureElement.innerHTML;
-  temperatureElement.innerHTML = Math.round((temperatureChange * 9) / 5 + 32);
+  let temperatureFahrenheit = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(temperatureFahrenheit);
 }
-let fahrenheit = document.querySelector("#fahrenheitLink");
-fahrenheit.addEventListener("click", convertToFahrenheit);
 
 function convertToCelsius(event) {
   event.preventDefault();
-  document.querySelector("#convertTemperature");
-  temperatureElement.innerHTML = 29;
+  celsius.classList.add("linkC");
+  fahrenheit.classList.remove("linkC");
+  let temperatureElement2 = document.querySelector("#convertTemperature");
+  temperatureElement2.innerHTML = Math.round(celsiusTemperature);
 }
+
+let celsiusTemperature = null;
+
+let formCity = document.querySelector("form");
+formCity.addEventListener("submit", userCityEnter);
+
+let fahrenheit = document.querySelector("#fahrenheitLink");
+fahrenheit.addEventListener("click", convertToFahrenheit);
 
 let celsius = document.querySelector("#celsiusLink");
 celsius.addEventListener("click", convertToCelsius);
 
-//Менять цвет фона взависимости от времени суток (день/ночь)
+searchCity("Warsaw");
+
+/*Менять цвет фона взависимости от времени суток (день/ночь)
 let date = new Date(); // Получаем текущие дату и время
 let h = date.getHours(); // Получаем текущий час
-if (h < 6 || h > 21) {
+if (h < 6 || h > 22) {
   document.getElementById("style").href = "src/style-night.css";
   console.log(document.getElementById("style"));
   console.log(h + " Enable Dark");
@@ -103,6 +112,7 @@ if (h < 6 || h > 21) {
   console.log(document.getElementById("style"));
   console.log(h + " Enable Light");
 }
+*/
 // Заменить слово в новостях
 function currentCityNews(event) {
   event.preventDefault();

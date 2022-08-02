@@ -50,6 +50,7 @@ body {
   top: -170px;
   color: rgb(22, 17, 72);
   font-size: 90%;
+  cursor: default;
 }
 .col-1 {
   font-weight: bolder;
@@ -133,6 +134,10 @@ form {
   position: relative;
   top: -5px;
   left: 0px;
+}
+.linkC {
+  text-decoration: none;
+  color: rgb(151, 63, 202);
 }
 .maxCelsius {
   color: rgb(175, 77, 232);
