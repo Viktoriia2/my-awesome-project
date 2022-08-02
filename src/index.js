@@ -38,7 +38,6 @@ function displayWeatherCondition(response) {
     response.data.main.humidity;
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
-  console.log(response);
 
   celsiusTemperature = response.data.main.temp;
 }
