@@ -1,3 +1,4 @@
+/*
 function formatDate(today) {
   let days = [
     "Sunday",
@@ -21,12 +22,34 @@ function formatDate(today) {
   return `${day}, ${hours}:${minutes}`;
 }
 let dateElement = document.querySelector("#date-time");
-let currentDateTime = new Date();
+let currentDateTime = new Date(); */
 
-dateElement.innerHTML = formatDate(currentDateTime);
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day}, ${hours}:${minutes}`;
+}
 
 // API weather
 function displayWeatherCondition(response) {
+  console.log(response.data);
   document.querySelector("#userCityManualEnter").innerHTML = response.data.name;
   document.querySelector("#convertTemperature").innerHTML = Math.round(
     response.data.main.temp
@@ -38,6 +61,9 @@ function displayWeatherCondition(response) {
     response.data.main.humidity;
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+  document.querySelector("#date-time").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
 
   celsiusTemperature = response.data.main.temp;
 }
