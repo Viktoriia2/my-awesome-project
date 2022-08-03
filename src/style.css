@@ -87,6 +87,7 @@ form {
   cursor: text;
   background-color: rgb(248, 236, 255);
   font-weight: bold;
+  border-color: rgb(173, 134, 209);
 }
 .buttonUserEnter {
   text-align: center;
@@ -168,8 +169,8 @@ form {
 .repository {
   position: relative;
   color: rgb(58, 63, 83);
-  top: -170px;
-  left: -55px;
+  top: -200px;
+  left: -30px;
   font-weight: bolder;
   width: 50%;
 }
