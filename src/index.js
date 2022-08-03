@@ -1,29 +1,3 @@
-/*
-function formatDate(today) {
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[today.getDay()];
-
-  let hours = today.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = today.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-  return `${day}, ${hours}:${minutes}`;
-}
-let dateElement = document.querySelector("#date-time");
-let currentDateTime = new Date(); */
-
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
