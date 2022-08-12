@@ -23,7 +23,8 @@ function formatDate(timestamp) {
 
 // API weather
 function displayWeatherCondition(response) {
-  console.log(response.data);
+  console.log(response);
+
   document.querySelector("#userCityManualEnter").innerHTML = response.data.name;
   document.querySelector("#convertTemperature").innerHTML = Math.round(
     response.data.main.temp
@@ -38,10 +39,12 @@ function displayWeatherCondition(response) {
   document.querySelector("#date-time").innerHTML = formatDate(
     response.data.dt * 1000
   );
-
   celsiusTemperature = response.data.main.temp;
-}
 
+  document.querySelector(
+    "#icon"
+  ).innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]["icon"]}@2x.png">`;
+}
 //Show Current Location
 function searchCity(city) {
   let apiKey = "260bbaa7e84e6774b9f60ed1b0d90e23";
