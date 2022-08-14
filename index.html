@@ -39,44 +39,17 @@
         <div class ="descriptionWeather"><span class = "descriptionClass" id="description">Clouds</div>
         <div class="todayMaximum"> Maximum today: <span class = "maxCelsius" id = "maximumCelsius">18</span>°C</div>
         <div class="humidity">Humidity: <span class = "humidityClass" id = "humidityProcent">0</span>%</div>
-        <div class="container">
-          <div class="row align-items-start">
-          <div class="col-1 col-sm-2">31 <span class = "monthNight">Jun</span></div>
-          <div class="col-2 col-sm-3"> <strong>Sunday</strong></div>
-          <div class="col-3 col-sm-1"><img class="sun_day" src="img/cloud_sun.png" alt="sun" width="35"/></div>
-          <div class="col-4 col-sm-1"><strong>31°C</strong></div>
-        </div>
-        <div class="row align-items-start">
-          <div class="col-1 col-sm-2">32 <span class = "monthNight">Jun</span></div>
-          <div class="col-2 col-sm-3"><strong>Monday</strong></div>
-          <div class="col-3 col-sm-1"><img class="sun_cloudy" src="img/cloud.png" alt="sun" width="35"/></div>
-          <div class="col-4 col-sm-1"><strong>29°C</strong></div>
-        </div>
-        <div class="row align-items-start">
-          <div class="col-1 col-sm-2">33 <span class = "monthNight">Jun</span></div>
-          <div class="col-2 col-sm-3"><strong>Tuesday</strong></div>
-          <div class="col-3 col-sm-1"><img class="sun_day" src="img/rainy.png" alt="sun" width="35"/></div>
-          <div class="col-4 col-sm-1"><strong>29°C</strong></div>
-        </div>
-        <div class="row align-items-start">
-          <div class="col-1 col-sm-2">32 <span class = "monthNight">Jun</span></div>
-          <div class="col-2 col-sm-3"><strong>Wednesday</strong></div>
-          <div class="col-3 col-sm-1"><img class="sun_rain" src="img/sun.png" alt="sun" width="35"/></div>
-          <div class="col-4 col-sm-1"><strong>31°C</strong></div>
-        </div>
-        <div class="row align-items-start">
-          <div class="col-1 col-sm-2">30 <span class = "monthNight">Jun</span></div>
-          <div class="col-2 col-sm-3"><strong>Thursday</strong></div>
-          <div class="col-3 col-sm-1"><img class="sun_cloudy" src="img/sun.png" alt="sun" width="35"/></div>
-          <div class="col-4 col-sm-1"><strong>33°C</strong></div>
-        </div>
-        <div class="row align-items-start">
-          <div class="col-1 col-sm-2">01 <span class = "monthNight">Jun</span></div>
-          <div class="col-2 col-sm-3"><strong>Friday</strong></div>
-          <div class="col-3 col-sm-1"><img class="sun_rain" src="img/cloud.png" alt="sun" width="35"/></div>
-          <div class="col-4 col-sm-1"><strong>33°C</strong></div>
-        </div>
-        </div>
+       <div class ="weather-forecast" id="forecast">
+
+  <div class container>
+    <div class="row">
+      <div class="col-2">
+        <div class="day-forecast">Sunday</div>
+        <img class="sun_day" src="img/cloud_sun.png" alt="sun" width="30" class/>
+        <div class = "forecast-temperature">26<span class="celsius-forecast"> °C</span></div>
+      </div>
+    </div>
+  </div>
         <div class="news">Read news in
          <a href="https://news.google.com/topstories?topic=w&hl=en-US&gl=US&ceid=US:en" target="_blank" id="cityNews" style="color: rgba(24, 64, 98, 0.736);" ><strong> Warsaw </strong></a>
         </div>

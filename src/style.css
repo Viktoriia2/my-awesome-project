@@ -46,27 +46,23 @@ body {
   top: -110px;
   left: 100px;
 }
-.container {
-  position: relative;
-  top: -170px;
-  color: rgb(22, 17, 72);
-  font-size: 90%;
-  cursor: default;
-}
-.col-1 {
-  font-weight: bolder;
-}
-.monthNight {
-  font-weight: lighter;
-}
 .row {
-  font-size: 175%;
-  font-weight: 300;
+  color: rgb(22, 17, 72);
+  position: relative;
+  top: -150px;
+  font-size: 140%;
+  font-weight: 300px;
+  cursor: default;
+  text-align: center;
+}
+.celsius-forecast {
+  font-weight: lighter;
+  font-size: 20px;
 }
 form {
   position: relative;
   text-align: right;
-  top: -590px;
+  top: -450px;
   left: 40px;
 }
 .user_city {
@@ -104,13 +100,13 @@ form {
 }
 .buttonLocation {
   text-align: center;
-  padding: 0.3% 1.4%;
+  padding: 0.4% 1.4%;
   background-color: rgba(212, 255, 244, 0.883);
   border-radius: 50px;
   border: 2px solid rgba(126, 152, 200, 0.323);
   position: relative;
-  top: -627px;
-  left: 488px;
+  top: -487px;
+  left: 484px;
 }
 .buttonLocation:hover {
   background-color: rgb(248, 236, 255);

@@ -47,12 +47,6 @@
   color: rgb(0, 0, 0);
   font-size: 90%;
 }
-.col-1 {
-  font-weight: bolder;
-}
-.monthNight {
-  font-weight: lighter;
-}
 .row {
   font-size: 175%;
   font-weight: 300;

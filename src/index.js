@@ -45,6 +45,12 @@ function displayWeatherCondition(response) {
     "#icon"
   ).innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]["icon"]}@2x.png">`;
 }
+//display forecast
+/*function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHTML;
+}*/
+
 //Show Current Location
 function searchCity(city) {
   let apiKey = "260bbaa7e84e6774b9f60ed1b0d90e23";
@@ -101,6 +107,7 @@ let celsius = document.querySelector("#celsiusLink");
 celsius.addEventListener("click", convertToCelsius);
 
 searchCity("Warsaw");
+displayForecast();
 
 /*Менять цвет фона взависимости от времени суток (день/ночь)
 let date = new Date(); // Получаем текущие дату и время
