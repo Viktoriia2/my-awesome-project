@@ -20,7 +20,31 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day}, ${hours}:${minutes}`;
 }
+//display forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
 
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div class="day-forecast">${day}</div>
+        <img class="sun_day" src="img/cloud_sun.png" alt="sun" width="30" class/>
+        <div class = "forecast-temperature">
+        <span class = "forecast-temperature-max">18°</span> 
+        <span class = "forecast-temperature-min">16°</span>
+        </div>
+        <div class="max-min">max &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;min</div>
+    </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 // API weather
 function displayWeatherCondition(response) {
   console.log(response);
@@ -40,16 +64,7 @@ function displayWeatherCondition(response) {
     response.data.dt * 1000
   );
   celsiusTemperature = response.data.main.temp;
-
-  document.querySelector(
-    "#icon"
-  ).innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]["icon"]}@2x.png">`;
 }
-//display forecast
-/*function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = forecastHTML;
-}*/
 
 //Show Current Location
 function searchCity(city) {
@@ -130,5 +145,3 @@ function currentCityNews(event) {
 }
 let cityName = document.querySelector("form");
 cityName.addEventListener("submit", currentCityNews);
-
-//

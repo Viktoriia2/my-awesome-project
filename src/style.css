@@ -50,14 +50,23 @@ body {
   color: rgb(22, 17, 72);
   position: relative;
   top: -150px;
-  font-size: 140%;
-  font-weight: 300px;
+  font-size: 130%;
+  font-weight: 200px;
   cursor: default;
   text-align: center;
 }
-.celsius-forecast {
-  font-weight: lighter;
-  font-size: 20px;
+.max-min {
+  font-size: 10px;
+  position: relative;
+  top: -10px;
+  left: -5px;
+  color: rgb(62, 62, 62);
+}
+.forecast-temperature-max {
+  font-weight: 600;
+}
+.forecast-temperature-min {
+  color: rgba(22, 17, 72, 0.684);
 }
 form {
   position: relative;
