@@ -21,10 +21,10 @@ function formatDate(timestamp) {
   return `${day}, ${hours}:${minutes}`;
 }
 //display forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
-  let forecastHTML = `<div class="row">`;
   let days = [
     "Monday",
     "Tuesday",
@@ -33,6 +33,7 @@ function displayForecast() {
     "Friday",
     "Saturday",
   ];
+  let forecastHTML = `<div class="row">`;
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
@@ -52,10 +53,14 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+// display forecast
+function getForecast(coordinates) {
+  let apiKey = "260bbaa7e84e6774b9f60ed1b0d90e23";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 // API weather
 function displayWeatherCondition(response) {
-  console.log(response);
-
   document.querySelector("#userCityManualEnter").innerHTML = response.data.name;
   document.querySelector("#convertTemperature").innerHTML = Math.round(
     response.data.main.temp
@@ -71,6 +76,8 @@ function displayWeatherCondition(response) {
     response.data.dt * 1000
   );
   celsiusTemperature = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 //Show Current Location
@@ -129,7 +136,6 @@ let celsius = document.querySelector("#celsiusLink");
 celsius.addEventListener("click", convertToCelsius);
 
 searchCity("Warsaw");
-displayForecast();
 
 /*Менять цвет фона взависимости от времени суток (день/ночь)
 let date = new Date(); // Получаем текущие дату и время
