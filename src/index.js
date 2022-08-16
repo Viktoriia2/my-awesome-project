@@ -21,11 +21,12 @@ function formatDate(timestamp) {
   return `${day}, ${hours}:${minutes}`;
 }
 //display forecast
-function displayForecast(response) {
-  console.log(response.data.daily);
-  let forecastElement = document.querySelector("#forecast");
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
   let days = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
@@ -33,27 +34,43 @@ function displayForecast(response) {
     "Friday",
     "Saturday",
   ];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col-2">
-        <div class="day-forecast">${day}</div>
-        <img class="sun_day" src="img/cloud_sun.png" alt="sun" width="30" class/>
+        <div class="day-forecast">${formatDay(forecastDay.dt)}</div>
+        <img class="sun_day" src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png" alt="sun" width="30" class/>
         <div class = "forecast-temperature">
-        <span class = "forecast-temperature-max">18°</span> 
-        <span class = "forecast-temperature-min">16°</span>
+        <span class = "forecast-temperature-max">${Math.round(
+          forecastDay.temp.max
+        )}°</span> 
+        <span class = "forecast-temperature-min">${Math.round(
+          forecastDay.temp.min
+        )}°</span>
         </div>
         <div class="max-min">max &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;min</div>
     </div>
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-// display forecast
+// display forecast API
 function getForecast(coordinates) {
   let apiKey = "260bbaa7e84e6774b9f60ed1b0d90e23";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
