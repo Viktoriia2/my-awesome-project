@@ -44,7 +44,7 @@ function displayForecast(response) {
 
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index < 5) {
       forecastHTML =
         forecastHTML +
         `
@@ -52,7 +52,7 @@ function displayForecast(response) {
         <div class="day-forecast">${formatDay(forecastDay.dt)}</div>
         <img class="sun_day" src="http://openweathermap.org/img/wn/${
           forecastDay.weather[0].icon
-        }@2x.png" alt="sun" width="30" class/>
+        }@2x.png" alt="sun" width="45" class/>
         <div class = "forecast-temperature">
         <span class = "forecast-temperature-max">${Math.round(
           forecastDay.temp.max
@@ -76,32 +76,73 @@ function getForecast(coordinates) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
+
+/*
+import React from "react";
+import ReactAnimatedWeather from "react-animated-weather";
+
+export default function WeatherIcon(props) {
+  const codeMapping = {
+    "01d": "CLEAR_DAY",
+    "01n": "CLEAR_NIGHT",
+    "02d": "PARTLY_CLOUDY_DAY",
+    "02n": "PARTLY_CLOUDY_NIGHT",
+    "03d": "PARTLY_CLOUDY_DAY",
+    "03n": "PARTLY_CLOUDY_NIGHT",
+    "04d": "CLOUDY",
+    "04n": "CLOUDY",
+    "09d": "RAIN",
+    "09n": "RAIN",
+    "10d": "RAIN",
+    "10n": "RAIN",
+    "11d": "RAIN",
+    "11n": "RAIN",
+    "13d": "SNOW",
+    "13n": "SNOW",
+    "50d": "FOG",
+    "50n": "FOG",
+  };
+
+  return (
+    <ReactAnimatedWeather
+      icon={codeMapping[props.code]}
+      color="#1e1e1e"
+      size={props.size}
+      animate={true}
+    />
+  );
+}
+*/
+
 // API weather
-function displayWeatherCondition(response) {
-  document.querySelector("#userCityManualEnter").innerHTML = response.data.name;
-  document.querySelector("#convertTemperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#maximumCelsius").innerHTML = Math.round(
-    response.data.main.temp_max
-  );
-  document.querySelector("#humidityProcent").innerHTML =
-    response.data.main.humidity;
-  document.querySelector("#description").innerHTML =
-    response.data.weather[0].main;
-  document.querySelector("#date-time").innerHTML = formatDate(
-    response.data.dt * 1000
-  );
+
+function displayWeather(response) {
+  let temperatureElement = document.querySelector("#convertTemperature");
+  let userCityElement = document.querySelector("#userCityManualEnter");
+  let maxTemperatureNow = document.querySelector("#maximumCelsius");
+  let humidityElement = document.querySelector("#humidityProcent");
+  let descriptionElement = document.querySelector("#description");
+  let dateTimeElement = document.querySelector("#date-time");
+  //let iconElement = document.querySelector("#icon");
+
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  userCityElement.innerHTML = response.data.name;
+  maxTemperatureNow.innerHTML = Math.round(response.data.main.temp_max);
+  humidityElement.innerHTML = response.data.main.humidity;
+  descriptionElement.innerHTML = response.data.weather[0].main;
+  dateTimeElement.innerHTML = formatDate(response.data.dt * 1000);
+  // iconElement.setAttribute("src", `./img/${response.data.weather[0].icon}.png`);
+  // iconElement.setAttribute("alt", response.data.weather[0].main);
+
   celsiusTemperature = response.data.main.temp;
 
   getForecast(response.data.coord);
 }
-
 //Show Current Location
 function searchCity(city) {
   let apiKey = "260bbaa7e84e6774b9f60ed1b0d90e23";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayWeatherCondition);
+  axios.get(apiUrl).then(displayWeather);
 }
 function userCityEnter(event) {
   event.preventDefault();
