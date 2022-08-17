@@ -36,23 +36,65 @@ function formatDay(timestamp) {
   ];
   return days[day];
 }
+/*
+function formatNumberDate() {
+  let numberDay = new Date();
+  numberDay.setDate(31);
+  let numberDays = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31",
+  ];
+  return numberDays[numberDay];
+} */
 
 function displayForecast(response) {
+  console.log(response);
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index < 5) {
+    if (index < 6) {
       forecastHTML =
         forecastHTML +
         `
       <div class="col-2">
         <div class="day-forecast">${formatDay(forecastDay.dt)}</div>
-        <img class="sun_day" src="http://openweathermap.org/img/wn/${
+        <div class = "forecas-icon"> 
+        <img src= "./img/${
           forecastDay.weather[0].icon
-        }@2x.png" alt="sun" width="45" class/>
+        }.png" alt="sun-rain-cloud" width="45"/>
+        </div>
         <div class = "forecast-temperature">
         <span class = "forecast-temperature-max">${Math.round(
           forecastDay.temp.max
@@ -77,45 +119,6 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-/*
-import React from "react";
-import ReactAnimatedWeather from "react-animated-weather";
-
-export default function WeatherIcon(props) {
-  const codeMapping = {
-    "01d": "CLEAR_DAY",
-    "01n": "CLEAR_NIGHT",
-    "02d": "PARTLY_CLOUDY_DAY",
-    "02n": "PARTLY_CLOUDY_NIGHT",
-    "03d": "PARTLY_CLOUDY_DAY",
-    "03n": "PARTLY_CLOUDY_NIGHT",
-    "04d": "CLOUDY",
-    "04n": "CLOUDY",
-    "09d": "RAIN",
-    "09n": "RAIN",
-    "10d": "RAIN",
-    "10n": "RAIN",
-    "11d": "RAIN",
-    "11n": "RAIN",
-    "13d": "SNOW",
-    "13n": "SNOW",
-    "50d": "FOG",
-    "50n": "FOG",
-  };
-
-  return (
-    <ReactAnimatedWeather
-      icon={codeMapping[props.code]}
-      color="#1e1e1e"
-      size={props.size}
-      animate={true}
-    />
-  );
-}
-*/
-
-// API weather
-
 function displayWeather(response) {
   let temperatureElement = document.querySelector("#convertTemperature");
   let userCityElement = document.querySelector("#userCityManualEnter");
@@ -123,7 +126,7 @@ function displayWeather(response) {
   let humidityElement = document.querySelector("#humidityProcent");
   let descriptionElement = document.querySelector("#description");
   let dateTimeElement = document.querySelector("#date-time");
-  //let iconElement = document.querySelector("#icon");
+  let iconElement = document.querySelector("#icon");
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   userCityElement.innerHTML = response.data.name;
@@ -131,8 +134,8 @@ function displayWeather(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   descriptionElement.innerHTML = response.data.weather[0].main;
   dateTimeElement.innerHTML = formatDate(response.data.dt * 1000);
-  // iconElement.setAttribute("src", `./img/${response.data.weather[0].icon}.png`);
-  // iconElement.setAttribute("alt", response.data.weather[0].main);
+  iconElement.setAttribute("src", `./img/${response.data.weather[0].icon}.png`);
+  iconElement.setAttribute("alt", response.data.weather[0].main);
 
   celsiusTemperature = response.data.main.temp;
 
