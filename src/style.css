@@ -1,10 +1,9 @@
 body {
-  background: radial-gradient(
-    592px at 48.2% 50%,
-    rgba(255, 255, 249, 0.6) 0%,
-    rgba(152, 199, 220, 0.692) 74.6%
-  );
+  background-image: url("sky_1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 .backgroung {
   max-width: 820px;
   max-height: 500px;
