@@ -36,45 +36,6 @@ function formatDay(timestamp) {
   ];
   return days[day];
 }
-/*
-function formatNumberDate() {
-  let numberDay = new Date();
-  numberDay.setDate(31);
-  let numberDays = [
-    "01",
-    "02",
-    "03",
-    "04",
-    "05",
-    "06",
-    "07",
-    "08",
-    "09",
-    "10",
-    "11",
-    "12",
-    "13",
-    "14",
-    "15",
-    "16",
-    "17",
-    "18",
-    "19",
-    "20",
-    "21",
-    "22",
-    "23",
-    "24",
-    "25",
-    "26",
-    "27",
-    "28",
-    "29",
-    "30",
-    "31",
-  ];
-  return numberDays[numberDay];
-} */
 
 function displayForecast(response) {
   console.log(response);
@@ -219,3 +180,13 @@ function currentCityNews(event) {
 }
 let cityName = document.querySelector("form");
 cityName.addEventListener("submit", currentCityNews);
+
+/*
+function changeUrlNews() {
+  let city = ;
+  document.getElementById(
+    "cityNews"
+  ).href = `https://news.google.com/search?q=${city}&hl=en-US&gl=US&ceid=US%3Aen`;
+}
+changeUrlNews();
+*/
